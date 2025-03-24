@@ -18,7 +18,8 @@
   transition:
     color var(--transition),
     background-color var(--transition),
-    filter var(--transition);
+    filter var(--transition),
+    border-bottom var(--transition);
 }
 
 * {
@@ -112,17 +113,29 @@ body {
   .contenedor {
     width: 100%;
   }
+
+  :root {
+    --gap: 10px;
+  }
 }
 
 @media (min-width: 650px) and (max-width: 1023px) {
   .contenedor {
     width: 95%;
   }
+
+  :root {
+    --gap: 15px;
+  }
 }
 
 @media (min-width: 1024px) {
   .contenedor {
     width: 90%;
+  }
+
+  :root {
+    --gap: 20px;
   }
 }
 
@@ -134,8 +147,12 @@ body {
 
 #navbar {
   display: flex;
+  justify-content: space-between;
   transition: transform 0.5s ease-in-out;
   position: fixed;
+  width: 100%;
+  border-bottom: 1px solid var(--background-inverse);
+  gap: 10px;
 
 }
 
@@ -145,13 +162,15 @@ body {
 }
 
 .nav-hidden {
-  transform: translateY(-80px);
+  transform: translateY(-100px);
 }
 
 .navbar-menu {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 10px;
+  gap: var(--gap);
 }
 
 .navbar-menu-handle {
