@@ -1,0 +1,163 @@
+:root {
+  --white: rgb(254, 254, 255);
+  --black: rgb(0, 1, 1);
+  --transition: 0.5s ease-in;
+}
+
+@font-face {
+  font-family: 'Valorax';
+  src: url('/global/Valorax-lg25V.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  transition:
+    color var(--transition),
+    background-color var(--transition),
+    filter var(--transition);
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+*,
+*::before,
+*::after {
+  scroll-behavior: smooth;
+}
+
+[data-scheme="light"] {
+  --background: var(--white);
+  --text: var(--black);
+  --background-inverse: var(--black);
+  --logo: invert(0);
+  --link: rgb(247, 44, 91);
+}
+
+[data-scheme="dark"] {
+  --background: var(--black);
+  --text: var(--white);
+  --background-inverse: var(--white);
+  --logo: invert(100);
+  --link: rgb(143, 135, 241);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--background);
+}
+
+.contenedor {
+  height: 100vh;
+}
+
+
+@media (max-width: 649px) {
+  .contenedor {
+    width: 100%;
+  }
+}
+
+@media (min-width: 650px) and (max-width: 1023px) {
+  .contenedor {
+    width: 95%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contenedor {
+    width: 90%;
+  }
+}
+
+
+.navbar-logo {
+  height: 80px;
+  filter: var(--logo);
+}
+
+#navbar {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  position: fixed;
+
+}
+
+
+#navbar::before {
+  transform: translateY(0);
+}
+
+.nav-hidden {
+  transform: translateY(-80px);
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-menu-handle {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--link);
+  text-decoration: none;
+  cursor: pointer;
+}
